@@ -1,0 +1,17 @@
+# 本工程自己的忽略规则（仓库根 .gitignore 之外的补充）
+build/
+cmake-build-*/
+*.exe
+*.o
+*.obj
+*.a
+*.so
+detection.png
+detect_demo.mp4
+frame_*.png
+
+# 仓库根 .gitignore 忽略所有 *.zip，这里单独放行演示视频包，避免每次 git add -f。
+!演示视频.zip
+
+# 说明文档仅本地保留，不随作业提交
+README.md
