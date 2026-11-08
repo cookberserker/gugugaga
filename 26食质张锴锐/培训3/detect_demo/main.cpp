@@ -41,9 +41,12 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    const double reportedFps = cap.get(cv::CAP_PROP_FPS);
-    const double fps =
-        (reportedFps > 1.0 && reportedFps < 120.0) ? reportedFps : 30.0;
+    // 结果视频帧率必须等于源视频帧率；读不到时不能猜默认值，否则播放速度会变。
+    const double fps = cap.get(cv::CAP_PROP_FPS);
+    if (!(fps > 1.0 && fps < 120.0)) {
+        std::cerr << "[task2] 源视频帧率不可读 (" << fps << ")，无法按原速写出结果视频\n";
+        return 1;
+    }
     const cv::Size frameSize(
         static_cast<int>(cap.get(cv::CAP_PROP_FRAME_WIDTH)),
         static_cast<int>(cap.get(cv::CAP_PROP_FRAME_HEIGHT)));
