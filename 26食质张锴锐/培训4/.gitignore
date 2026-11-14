@@ -1,0 +1,14 @@
+# 培训4 · 相机标定
+# 113 张标定原图属于本地数据集，不进仓库（根 README 注意事项第 13 条）
+images/
+cam_mix_img/
+
+build/
+cmake-build-*/
+output/
+*.exe
+*.o
+*.obj
+*.a
+*.so
+README.md
